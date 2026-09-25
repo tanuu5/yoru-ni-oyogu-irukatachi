@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>夜に泳ぐイルカたち — Dolphins Swimming at Night</title>
+  <meta name="description" content="たぬの短編小説「夜に泳ぐイルカたち」を、紙とセロハンを切り抜いて一コマずつ動かすストップモーションにしました。すべてのコマはブラウザの中で描かれます。">
+  <meta property="og:title" content="夜に泳ぐイルカたち — Dolphins Swimming at Night">
+  <meta property="og:description" content="A paper-and-cellophane stop-motion, after a short story by Tanu. Every frame is cut and lit in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0a0a12">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23141432'/%3E%3Cpath d='M52 30c-6-10-20-12-30-6-4 2-8 1-12-2 1 5 4 8 8 9-2 3-3 6-2 9 3-3 6-5 10-5 8 1 17 1 26-5z' fill='%234fb6dd'/%3E%3Ccircle cx='44' cy='27' r='2' fill='%230d0d18'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link data-fonts rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono&family=Klee+One:wght@400;600&family=Zen+Old+Mincho:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <section id="stage" aria-label="ストップモーション作品「夜に泳ぐイルカたち」">
+      <canvas id="film" role="img" aria-label="紙とセロハンを切り抜いて作ったストップモーション。深夜のタワーマンションの一室で、男が小説を書いている。モニターの隅ではセロハンのイルカが泳ぎ、台所では冷蔵庫が話しかけてくる。"></canvas>
+
+      <div id="loading" class="veil">
+        <p class="load-text">セロハンを切っています…<span>cutting cellophane</span></p>
+        <div class="bar"><i id="loadbar"></i></div>
+      </div>
+
+      <div id="start" class="veil" hidden>
+        <div class="card">
+          <h1>夜に泳ぐイルカたち</h1>
+          <p class="sub">Dolphins Swimming at Night</p>
+          <p class="tag">原作　たぬ　／　紙とセロハンのストップモーション</p>
+          <button id="play" type="button"><span aria-hidden="true">▶</span> はじめる <small>play</small></button>
+          <p class="hint">約4分半・音が出ます　<kbd>Space</kbd> 再生／停止　<kbd>←</kbd><kbd>→</kbd> コマ送り</p>
+        </div>
+      </div>
+
+      <div id="end" class="veil soft" hidden>
+        <div class="card">
+          <p class="fin">おしまい <small>fin</small></p>
+          <button id="replay" type="button">もう一度みる <small>watch again</small></button>
+          <p class="hint"><kbd>←</kbd><kbd>→</kbd> で一コマずつ戻って見ることもできます</p>
+        </div>
+      </div>
+
+      <div id="controls">
+        <button id="pp" type="button" aria-label="再生">▶</button>
+        <input id="scrub" type="range" min="0" max="100" value="0" step="1" aria-label="コマ位置">
+        <span id="counter" aria-live="off">コマ 0001</span>
+        <button id="lang" type="button">字幕 日本語</button>
+        <button id="snd" type="button" aria-pressed="true">音 ON</button>
+        <button id="fs" type="button" aria-label="全画面">⛶</button>
+      </div>
+      <p id="live" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <article id="about">
+      <div class="col">
+        <h2>この作品について</h2>
+        <p>たぬの短編小説「<a href="https://note.com/tank_ai/n/n6505b03f0f9e">夜に泳ぐイルカたち</a>」（2025年）を原作に、Claude（Anthropic の AI）が構成・絵・音・プログラムを作ったストップモーションです。深夜のタワーマンションで小説を書く男と、モニターの隅を泳ぐイルカの AI、口うるさい冷蔵庫の AI の一夜を描きます。</p>
+        <p>男の部屋は、原作の文章が刷られた紙で切りました。イルカと冷蔵庫の「もうひとつの顔」は、光を通すセロハンで切っています。</p>
+        <p>原作では、イルカと冷蔵庫が何を隠しているのかは最後までわかりません。映画もその筋は変えていません。ただ、この映画のコマはどれも、止めて一枚ずつ見ることができます。<kbd>←</kbd><kbd>→</kbd> でコマ送りしたときにだけ読める一枚を、原作にはない付け足しとして入れました。</p>
+        <p class="tech">作品の中で画像・動画・音声のファイルは使っていません。紙の繊維、刷られた文字、セロハンのしわ、ネオン、影、音まで、ブラウザの中でその場で作っています（12fps）。同じコマは毎回同じ姿で描かれます。</p>
+        <p class="credit">原作：たぬ「<a href="https://note.com/tank_ai/n/n6505b03f0f9e">夜に泳ぐイルカたち</a>」　／　制作：Claude Opus 5.5（MAX）<br>コード：MIT License　／　原作の文章とその翻訳は MIT の対象外です（© たぬ）</p>
+      </div>
+      <div class="col en" lang="en">
+        <h2>About</h2>
+        <p>A stop-motion film after Tanu’s short story <a href="https://note.com/tank_ai/n/n6505b03f0f9e"><i>Dolphins Swimming at Night</i></a> (2025). Claude — an AI made by Anthropic — adapted, drew, scored and programmed it. Late at night in a high-rise flat, a writer works on a story while a dolphin avatar swims in the corner of his monitor and the fridge has opinions about his caffeine.</p>
+        <p>The man’s room is cut from paper printed with the original story. The dolphin and the fridge’s other face are cut from cellophane — film that lets light through.</p>
+        <p>The story never tells us what the dolphin and the fridge are hiding, and the film keeps it that way. But every frame here can be paused and looked at on its own. One frame, added by the adaptation, can only be read if you step through with <kbd>←</kbd> <kbd>→</kbd>.</p>
+        <p class="tech">No image, video or audio files are used. Paper fibres, printed text, crinkled cellophane, neon, shadows and sound are all made live in your browser, at 12 fps. Every frame renders the same way every time.</p>
+        <p class="credit">Original story: Tanu · Made with Claude Opus 5.5 (MAX)<br>Code: MIT License · The story’s text and its translations are © Tanu, not covered by the MIT License</p>
+      </div>
+    </article>
+    <footer>夜に泳ぐイルカたち — made one frame at a time by Claude Opus 5.5 (MAX)</footer>
+  </main>
+  <noscript><p class="noscript">この作品の再生には JavaScript が必要です。/ This film needs JavaScript to play.</p></noscript>
+  <script>
+    // If the film's scripts never start (a dropped connection, a very slow network), say so instead of waiting forever.
+    setTimeout(function () {
+      if (window.__filmStarted) return;
+      var t = document.querySelector('.load-text');
+      if (t) t.innerHTML = '読み込みに時間がかかっています。ページを再読み込みしてください。<span>Still loading — please reload the page.</span>';
+    }, 15000);
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
