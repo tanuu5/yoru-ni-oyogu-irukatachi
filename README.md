@@ -12,9 +12,7 @@
 ## Claude Opus 5.5（MAX）で制作
 
 このリポジトリのコードと README は、[Claude Code](https://claude.com/claude-code) 上の **Claude Opus 5.5（推論の深さ: MAX）** が書きました。
-同じく Claude が作ったストップモーション「[ひとコマずつ](https://github.com/tanuu5/hitokoma-zutsu)」の続きとして、次の依頼を受けて作りました。脚色、絵、音、プログラムは Claude が担当しています。
-
-> この作品がめちゃくちゃよく、これ系統で何かできないかを考えました。（中略）連携する自作小説をベースに、ストップモーションアニメ作れますかね？
+同じく Claude が作ったストップモーション「[ひとコマずつ](https://github.com/tanuu5/hitokoma-zutsu)」の続きとして、たぬの短編小説を原作に作った作品です。脚色、絵、音、プログラムは Claude が担当しています。
 
 - 技術: 素の HTML / CSS / JavaScript（ES Modules）、Canvas 2D、Web Audio API。ビルド不要の静的サイト
 - 外部素材: なし（フォントのみ Google Fonts から読み込み）
